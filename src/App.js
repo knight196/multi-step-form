@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import "bootstrap-icons/font/bootstrap-icons.css";
+import Container from './Container/Container'
+import RouteChange from './RootChange'
+import {useState} from 'react'
 
 function App() {
+
+  const [toggle,settoggle] = useState(1)
+
+  const toggleTab = (index) => {
+    settoggle(index)
+  }
+
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container-page">
+      <Container toggle={toggle}/>
+      
+      <RouteChange toggle={toggle} toggleTab={toggleTab}/>
+      
+      </div>
+      
     </div>
+   
   );
 }
 
